@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Target, Eye, Heart, ShieldCheck, Handshake, Scale, Users } from "lucide-react";
-import { SectionHeading } from "./index";
+import { SectionHeading } from "@/components/site/SectionHeading";
 import { PageHeader } from "@/components/site/PageHeader";
+
 
 export const Route = createFileRoute("/quem-somos")({
   head: () => ({
