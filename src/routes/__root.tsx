@@ -93,7 +93,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "ASAPOL, Sindicato PSP, Polícia de Segurança Pública, Sindicato da Polícia, Direitos dos Polícias, Associação Sindical Polícia, PSP Portugal",
       },
-      { property: "og:title", content: "ASAPOL — Sindicato da PSP" },
+      { property: "og:title", content: "ASAPOL — Associação Sindical Autónoma de Polícia" },
       {
         property: "og:description",
         content:
@@ -102,6 +102,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_PT" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "ASAPOL — Associação Sindical Autónoma de Polícia" },
+      { name: "description", content: "ASAPOL Union Hub is a professional website for an independent police union." },
+      { property: "og:description", content: "ASAPOL Union Hub is a professional website for an independent police union." },
+      { name: "twitter:description", content: "ASAPOL Union Hub is a professional website for an independent police union." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c609b1f0-0ac7-4e08-9ab6-ecfdd2962671/id-preview-61537760--8afe591a-c53f-4c11-96d1-7bb40b894603.lovable.app-1781270811678.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c609b1f0-0ac7-4e08-9ab6-ecfdd2962671/id-preview-61537760--8afe591a-c53f-4c11-96d1-7bb40b894603.lovable.app-1781270811678.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
