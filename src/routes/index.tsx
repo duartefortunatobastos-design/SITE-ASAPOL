@@ -3,6 +3,8 @@ import { ArrowRight, Scale, Megaphone, GraduationCap, Landmark, Newspaper, Heart
 import heroImg from "@/assets/hero-psp.jpg";
 import { Button } from "@/components/ui/button";
 import { Counter } from "@/components/site/Counter";
+import { SectionHeading } from "@/components/site/SectionHeading";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
