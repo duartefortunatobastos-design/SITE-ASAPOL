@@ -138,8 +138,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <Navbar />
+      <main className="pt-20">
+        <Outlet />
+      </main>
+      <Footer />
+      <BackToTop />
     </QueryClientProvider>
   );
+
 }
 
