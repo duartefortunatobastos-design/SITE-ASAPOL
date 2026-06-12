@@ -9,8 +9,44 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as QuemSomosRouteImport } from './routes/quem-somos'
+import { Route as NoticiasRouteImport } from './routes/noticias'
+import { Route as ContactosRouteImport } from './routes/contactos'
+import { Route as BeneficiosRouteImport } from './routes/beneficios'
+import { Route as AreaAssociadoRouteImport } from './routes/area-associado'
+import { Route as AdesaoRouteImport } from './routes/adesao'
 import { Route as IndexRouteImport } from './routes/index'
 
+const QuemSomosRoute = QuemSomosRouteImport.update({
+  id: '/quem-somos',
+  path: '/quem-somos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NoticiasRoute = NoticiasRouteImport.update({
+  id: '/noticias',
+  path: '/noticias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactosRoute = ContactosRouteImport.update({
+  id: '/contactos',
+  path: '/contactos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeneficiosRoute = BeneficiosRouteImport.update({
+  id: '/beneficios',
+  path: '/beneficios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreaAssociadoRoute = AreaAssociadoRouteImport.update({
+  id: '/area-associado',
+  path: '/area-associado',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdesaoRoute = AdesaoRouteImport.update({
+  id: '/adesao',
+  path: '/adesao',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +55,116 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/adesao': typeof AdesaoRoute
+  '/area-associado': typeof AreaAssociadoRoute
+  '/beneficios': typeof BeneficiosRoute
+  '/contactos': typeof ContactosRoute
+  '/noticias': typeof NoticiasRoute
+  '/quem-somos': typeof QuemSomosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/adesao': typeof AdesaoRoute
+  '/area-associado': typeof AreaAssociadoRoute
+  '/beneficios': typeof BeneficiosRoute
+  '/contactos': typeof ContactosRoute
+  '/noticias': typeof NoticiasRoute
+  '/quem-somos': typeof QuemSomosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/adesao': typeof AdesaoRoute
+  '/area-associado': typeof AreaAssociadoRoute
+  '/beneficios': typeof BeneficiosRoute
+  '/contactos': typeof ContactosRoute
+  '/noticias': typeof NoticiasRoute
+  '/quem-somos': typeof QuemSomosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/adesao'
+    | '/area-associado'
+    | '/beneficios'
+    | '/contactos'
+    | '/noticias'
+    | '/quem-somos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/adesao'
+    | '/area-associado'
+    | '/beneficios'
+    | '/contactos'
+    | '/noticias'
+    | '/quem-somos'
+  id:
+    | '__root__'
+    | '/'
+    | '/adesao'
+    | '/area-associado'
+    | '/beneficios'
+    | '/contactos'
+    | '/noticias'
+    | '/quem-somos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdesaoRoute: typeof AdesaoRoute
+  AreaAssociadoRoute: typeof AreaAssociadoRoute
+  BeneficiosRoute: typeof BeneficiosRoute
+  ContactosRoute: typeof ContactosRoute
+  NoticiasRoute: typeof NoticiasRoute
+  QuemSomosRoute: typeof QuemSomosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/quem-somos': {
+      id: '/quem-somos'
+      path: '/quem-somos'
+      fullPath: '/quem-somos'
+      preLoaderRoute: typeof QuemSomosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/noticias': {
+      id: '/noticias'
+      path: '/noticias'
+      fullPath: '/noticias'
+      preLoaderRoute: typeof NoticiasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contactos': {
+      id: '/contactos'
+      path: '/contactos'
+      fullPath: '/contactos'
+      preLoaderRoute: typeof ContactosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/beneficios': {
+      id: '/beneficios'
+      path: '/beneficios'
+      fullPath: '/beneficios'
+      preLoaderRoute: typeof BeneficiosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/area-associado': {
+      id: '/area-associado'
+      path: '/area-associado'
+      fullPath: '/area-associado'
+      preLoaderRoute: typeof AreaAssociadoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/adesao': {
+      id: '/adesao'
+      path: '/adesao'
+      fullPath: '/adesao'
+      preLoaderRoute: typeof AdesaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,7 +177,23 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdesaoRoute: AdesaoRoute,
+  AreaAssociadoRoute: AreaAssociadoRoute,
+  BeneficiosRoute: BeneficiosRoute,
+  ContactosRoute: ContactosRoute,
+  NoticiasRoute: NoticiasRoute,
+  QuemSomosRoute: QuemSomosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
