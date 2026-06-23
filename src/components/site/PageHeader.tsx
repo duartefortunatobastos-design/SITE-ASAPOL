@@ -1,16 +1,92 @@
-export function PageHeader({ kicker, title, subtitle }: { kicker?: string; title: string; subtitle?: string }) {
+import { Link } from "@tanstack/react-router";
+import { ChevronRight } from "lucide-react";
+import { BannerStagger, BannerSurface } from "@/components/site/BannerSurface";
+
+type BreadcrumbItem = { to?: string; label: string };
+
+const PARENT_ROUTES: Record<string, string> = {
+  "Quem Somos": "/quem-somos",
+  Associados: "/associados",
+  Protocolos: "/associados/protocolos",
+};
+
+function buildBreadcrumb(
+  kicker: string | undefined,
+  title: string,
+  breadcrumb?: BreadcrumbItem[],
+  breadcrumbLabel?: string,
+): BreadcrumbItem[] {
+  if (breadcrumb) return breadcrumb;
+
+  if (breadcrumbLabel) return [{ label: breadcrumbLabel }];
+
+  if (
+    kicker &&
+    title !== kicker &&
+    title.length <= 40 &&
+    PARENT_ROUTES[kicker]
+  ) {
+    return [
+      { to: PARENT_ROUTES[kicker], label: kicker },
+      { label: title },
+    ];
+  }
+
+  return [{ label: kicker ?? title }];
+}
+
+export function PageHeader({
+  kicker,
+  title,
+  subtitle,
+  breadcrumb,
+  breadcrumbLabel,
+}: {
+  kicker?: string;
+  title: string;
+  subtitle?: string;
+  breadcrumb?: BreadcrumbItem[];
+  breadcrumbLabel?: string;
+}) {
+  const crumbs = buildBreadcrumb(kicker, title, breadcrumb, breadcrumbLabel);
+
   return (
-    <section className="relative -mt-20 pt-36 pb-20 bg-hero-gradient text-white overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
-      <div className="container-x relative text-center max-w-3xl">
-        {kicker && (
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-[var(--gold)]">
-            <span className="h-px w-8 bg-[var(--gold)]" /> {kicker}
-          </div>
-        )}
-        <h1 className="mt-4 font-display text-4xl md:text-6xl font-black text-balance">{title}</h1>
-        {subtitle && <p className="mt-5 text-lg text-white/80 leading-relaxed">{subtitle}</p>}
+    <BannerSurface as="section" className="-mt-20 pt-36 pb-20">
+      <div className="container-x relative">
+        <BannerStagger variant="fade-in" delay={60}>
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-6 flex flex-wrap items-center gap-1 text-xs text-white/70"
+          >
+            <Link to="/" className="transition hover:text-white">
+              Início
+            </Link>
+            {crumbs.map((crumb) => (
+              <span key={crumb.label} className="inline-flex items-center gap-1">
+                <ChevronRight size={12} className="text-white/40" aria-hidden />
+                {crumb.to ? (
+                  <Link to={crumb.to} className="transition hover:text-white">
+                    {crumb.label}
+                  </Link>
+                ) : (
+                  <span className="text-white">{crumb.label}</span>
+                )}
+              </span>
+            ))}
+          </nav>
+        </BannerStagger>
+
+        <div className="mx-auto max-w-3xl text-center">
+          <BannerStagger delay={140}>
+            <h1 className="font-display text-4xl font-black text-balance md:text-6xl">{title}</h1>
+          </BannerStagger>
+          {subtitle && (
+            <BannerStagger delay={240}>
+              <p className="mt-5 text-lg leading-relaxed text-white/80">{subtitle}</p>
+            </BannerStagger>
+          )}
+        </div>
       </div>
-    </section>
+    </BannerSurface>
   );
 }

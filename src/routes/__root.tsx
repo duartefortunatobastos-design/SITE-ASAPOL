@@ -10,11 +10,11 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import asapolLogo from "../assets/asapol-logo.png?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { BackToTop } from "@/components/site/BackToTop";
-
 
 function NotFoundComponent() {
   return (
@@ -103,14 +103,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:locale", content: "pt_PT" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "ASAPOL — Associação Sindical Autónoma de Polícia" },
-      { name: "description", content: "ASAPOL Union Hub is a professional website for an independent police union." },
-      { property: "og:description", content: "ASAPOL Union Hub is a professional website for an independent police union." },
-      { name: "twitter:description", content: "ASAPOL Union Hub is a professional website for an independent police union." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c609b1f0-0ac7-4e08-9ab6-ecfdd2962671/id-preview-61537760--8afe591a-c53f-4c11-96d1-7bb40b894603.lovable.app-1781270811678.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c609b1f0-0ac7-4e08-9ab6-ecfdd2962671/id-preview-61537760--8afe591a-c53f-4c11-96d1-7bb40b894603.lovable.app-1781270811678.png" },
+      {
+        name: "description",
+        content: "ASAPOL Union Hub is a professional website for an independent police union.",
+      },
+      {
+        property: "og:description",
+        content: "ASAPOL Union Hub is a professional website for an independent police union.",
+      },
+      {
+        name: "twitter:description",
+        content: "ASAPOL Union Hub is a professional website for an independent police union.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c609b1f0-0ac7-4e08-9ab6-ecfdd2962671/id-preview-61537760--8afe591a-c53f-4c11-96d1-7bb40b894603.lovable.app-1781270811678.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c609b1f0-0ac7-4e08-9ab6-ecfdd2962671/id-preview-61537760--8afe591a-c53f-4c11-96d1-7bb40b894603.lovable.app-1781270811678.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: asapolLogo, type: "image/png" },
+      { rel: "apple-touch-icon", href: asapolLogo },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -152,6 +171,4 @@ function RootComponent() {
       <BackToTop />
     </QueryClientProvider>
   );
-
 }
-

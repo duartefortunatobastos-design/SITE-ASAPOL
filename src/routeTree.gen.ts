@@ -9,14 +9,30 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VitoriasJudiciaisRouteImport } from './routes/vitorias-judiciais'
 import { Route as QuemSomosRouteImport } from './routes/quem-somos'
 import { Route as NoticiasRouteImport } from './routes/noticias'
 import { Route as ContactosRouteImport } from './routes/contactos'
 import { Route as BeneficiosRouteImport } from './routes/beneficios'
-import { Route as AreaAssociadoRouteImport } from './routes/area-associado'
+import { Route as AssociadosRouteImport } from './routes/associados'
 import { Route as AdesaoRouteImport } from './routes/adesao'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as QuemSomosIndexRouteImport } from './routes/quem-somos.index'
+import { Route as AssociadosIndexRouteImport } from './routes/associados.index'
+import { Route as QuemSomosManifestoSindicalRouteImport } from './routes/quem-somos.manifesto-sindical'
+import { Route as QuemSomosLinksRouteImport } from './routes/quem-somos.links'
+import { Route as QuemSomosEstatutosRouteImport } from './routes/quem-somos.estatutos'
+import { Route as AssociadosProtocolosRouteImport } from './routes/associados.protocolos'
+import { Route as AssociadosPainelRouteImport } from './routes/associados.painel'
+import { Route as AssociadosFichaDeAssociadoRouteImport } from './routes/associados.ficha-de-associado'
+import { Route as AssociadosProtocolosIndexRouteImport } from './routes/associados.protocolos.index'
+import { Route as AssociadosProtocolosSlugRouteImport } from './routes/associados.protocolos.$slug'
 
+const VitoriasJudiciaisRoute = VitoriasJudiciaisRouteImport.update({
+  id: '/vitorias-judiciais',
+  path: '/vitorias-judiciais',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QuemSomosRoute = QuemSomosRouteImport.update({
   id: '/quem-somos',
   path: '/quem-somos',
@@ -37,9 +53,9 @@ const BeneficiosRoute = BeneficiosRouteImport.update({
   path: '/beneficios',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AreaAssociadoRoute = AreaAssociadoRouteImport.update({
-  id: '/area-associado',
-  path: '/area-associado',
+const AssociadosRoute = AssociadosRouteImport.update({
+  id: '/associados',
+  path: '/associados',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdesaoRoute = AdesaoRouteImport.update({
@@ -52,77 +68,199 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuemSomosIndexRoute = QuemSomosIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => QuemSomosRoute,
+} as any)
+const AssociadosIndexRoute = AssociadosIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AssociadosRoute,
+} as any)
+const QuemSomosManifestoSindicalRoute =
+  QuemSomosManifestoSindicalRouteImport.update({
+    id: '/manifesto-sindical',
+    path: '/manifesto-sindical',
+    getParentRoute: () => QuemSomosRoute,
+  } as any)
+const QuemSomosLinksRoute = QuemSomosLinksRouteImport.update({
+  id: '/links',
+  path: '/links',
+  getParentRoute: () => QuemSomosRoute,
+} as any)
+const QuemSomosEstatutosRoute = QuemSomosEstatutosRouteImport.update({
+  id: '/estatutos',
+  path: '/estatutos',
+  getParentRoute: () => QuemSomosRoute,
+} as any)
+const AssociadosProtocolosRoute = AssociadosProtocolosRouteImport.update({
+  id: '/protocolos',
+  path: '/protocolos',
+  getParentRoute: () => AssociadosRoute,
+} as any)
+const AssociadosPainelRoute = AssociadosPainelRouteImport.update({
+  id: '/painel',
+  path: '/painel',
+  getParentRoute: () => AssociadosRoute,
+} as any)
+const AssociadosFichaDeAssociadoRoute =
+  AssociadosFichaDeAssociadoRouteImport.update({
+    id: '/ficha-de-associado',
+    path: '/ficha-de-associado',
+    getParentRoute: () => AssociadosRoute,
+  } as any)
+const AssociadosProtocolosIndexRoute =
+  AssociadosProtocolosIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AssociadosProtocolosRoute,
+  } as any)
+const AssociadosProtocolosSlugRoute =
+  AssociadosProtocolosSlugRouteImport.update({
+    id: '/$slug',
+    path: '/$slug',
+    getParentRoute: () => AssociadosProtocolosRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/adesao': typeof AdesaoRoute
-  '/area-associado': typeof AreaAssociadoRoute
+  '/associados': typeof AssociadosRouteWithChildren
   '/beneficios': typeof BeneficiosRoute
   '/contactos': typeof ContactosRoute
   '/noticias': typeof NoticiasRoute
-  '/quem-somos': typeof QuemSomosRoute
+  '/quem-somos': typeof QuemSomosRouteWithChildren
+  '/vitorias-judiciais': typeof VitoriasJudiciaisRoute
+  '/associados/ficha-de-associado': typeof AssociadosFichaDeAssociadoRoute
+  '/associados/painel': typeof AssociadosPainelRoute
+  '/associados/protocolos': typeof AssociadosProtocolosRouteWithChildren
+  '/quem-somos/estatutos': typeof QuemSomosEstatutosRoute
+  '/quem-somos/links': typeof QuemSomosLinksRoute
+  '/quem-somos/manifesto-sindical': typeof QuemSomosManifestoSindicalRoute
+  '/associados/': typeof AssociadosIndexRoute
+  '/quem-somos/': typeof QuemSomosIndexRoute
+  '/associados/protocolos/$slug': typeof AssociadosProtocolosSlugRoute
+  '/associados/protocolos/': typeof AssociadosProtocolosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/adesao': typeof AdesaoRoute
-  '/area-associado': typeof AreaAssociadoRoute
   '/beneficios': typeof BeneficiosRoute
   '/contactos': typeof ContactosRoute
   '/noticias': typeof NoticiasRoute
-  '/quem-somos': typeof QuemSomosRoute
+  '/vitorias-judiciais': typeof VitoriasJudiciaisRoute
+  '/associados/ficha-de-associado': typeof AssociadosFichaDeAssociadoRoute
+  '/associados/painel': typeof AssociadosPainelRoute
+  '/quem-somos/estatutos': typeof QuemSomosEstatutosRoute
+  '/quem-somos/links': typeof QuemSomosLinksRoute
+  '/quem-somos/manifesto-sindical': typeof QuemSomosManifestoSindicalRoute
+  '/associados': typeof AssociadosIndexRoute
+  '/quem-somos': typeof QuemSomosIndexRoute
+  '/associados/protocolos/$slug': typeof AssociadosProtocolosSlugRoute
+  '/associados/protocolos': typeof AssociadosProtocolosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/adesao': typeof AdesaoRoute
-  '/area-associado': typeof AreaAssociadoRoute
+  '/associados': typeof AssociadosRouteWithChildren
   '/beneficios': typeof BeneficiosRoute
   '/contactos': typeof ContactosRoute
   '/noticias': typeof NoticiasRoute
-  '/quem-somos': typeof QuemSomosRoute
+  '/quem-somos': typeof QuemSomosRouteWithChildren
+  '/vitorias-judiciais': typeof VitoriasJudiciaisRoute
+  '/associados/ficha-de-associado': typeof AssociadosFichaDeAssociadoRoute
+  '/associados/painel': typeof AssociadosPainelRoute
+  '/associados/protocolos': typeof AssociadosProtocolosRouteWithChildren
+  '/quem-somos/estatutos': typeof QuemSomosEstatutosRoute
+  '/quem-somos/links': typeof QuemSomosLinksRoute
+  '/quem-somos/manifesto-sindical': typeof QuemSomosManifestoSindicalRoute
+  '/associados/': typeof AssociadosIndexRoute
+  '/quem-somos/': typeof QuemSomosIndexRoute
+  '/associados/protocolos/$slug': typeof AssociadosProtocolosSlugRoute
+  '/associados/protocolos/': typeof AssociadosProtocolosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/adesao'
-    | '/area-associado'
+    | '/associados'
     | '/beneficios'
     | '/contactos'
     | '/noticias'
     | '/quem-somos'
+    | '/vitorias-judiciais'
+    | '/associados/ficha-de-associado'
+    | '/associados/painel'
+    | '/associados/protocolos'
+    | '/quem-somos/estatutos'
+    | '/quem-somos/links'
+    | '/quem-somos/manifesto-sindical'
+    | '/associados/'
+    | '/quem-somos/'
+    | '/associados/protocolos/$slug'
+    | '/associados/protocolos/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/adesao'
-    | '/area-associado'
     | '/beneficios'
     | '/contactos'
     | '/noticias'
+    | '/vitorias-judiciais'
+    | '/associados/ficha-de-associado'
+    | '/associados/painel'
+    | '/quem-somos/estatutos'
+    | '/quem-somos/links'
+    | '/quem-somos/manifesto-sindical'
+    | '/associados'
     | '/quem-somos'
+    | '/associados/protocolos/$slug'
+    | '/associados/protocolos'
   id:
     | '__root__'
     | '/'
     | '/adesao'
-    | '/area-associado'
+    | '/associados'
     | '/beneficios'
     | '/contactos'
     | '/noticias'
     | '/quem-somos'
+    | '/vitorias-judiciais'
+    | '/associados/ficha-de-associado'
+    | '/associados/painel'
+    | '/associados/protocolos'
+    | '/quem-somos/estatutos'
+    | '/quem-somos/links'
+    | '/quem-somos/manifesto-sindical'
+    | '/associados/'
+    | '/quem-somos/'
+    | '/associados/protocolos/$slug'
+    | '/associados/protocolos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdesaoRoute: typeof AdesaoRoute
-  AreaAssociadoRoute: typeof AreaAssociadoRoute
+  AssociadosRoute: typeof AssociadosRouteWithChildren
   BeneficiosRoute: typeof BeneficiosRoute
   ContactosRoute: typeof ContactosRoute
   NoticiasRoute: typeof NoticiasRoute
-  QuemSomosRoute: typeof QuemSomosRoute
+  QuemSomosRoute: typeof QuemSomosRouteWithChildren
+  VitoriasJudiciaisRoute: typeof VitoriasJudiciaisRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vitorias-judiciais': {
+      id: '/vitorias-judiciais'
+      path: '/vitorias-judiciais'
+      fullPath: '/vitorias-judiciais'
+      preLoaderRoute: typeof VitoriasJudiciaisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/quem-somos': {
       id: '/quem-somos'
       path: '/quem-somos'
@@ -151,11 +289,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BeneficiosRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/area-associado': {
-      id: '/area-associado'
-      path: '/area-associado'
-      fullPath: '/area-associado'
-      preLoaderRoute: typeof AreaAssociadoRouteImport
+    '/associados': {
+      id: '/associados'
+      path: '/associados'
+      fullPath: '/associados'
+      preLoaderRoute: typeof AssociadosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/adesao': {
@@ -172,18 +310,148 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quem-somos/': {
+      id: '/quem-somos/'
+      path: '/'
+      fullPath: '/quem-somos/'
+      preLoaderRoute: typeof QuemSomosIndexRouteImport
+      parentRoute: typeof QuemSomosRoute
+    }
+    '/associados/': {
+      id: '/associados/'
+      path: '/'
+      fullPath: '/associados/'
+      preLoaderRoute: typeof AssociadosIndexRouteImport
+      parentRoute: typeof AssociadosRoute
+    }
+    '/quem-somos/manifesto-sindical': {
+      id: '/quem-somos/manifesto-sindical'
+      path: '/manifesto-sindical'
+      fullPath: '/quem-somos/manifesto-sindical'
+      preLoaderRoute: typeof QuemSomosManifestoSindicalRouteImport
+      parentRoute: typeof QuemSomosRoute
+    }
+    '/quem-somos/links': {
+      id: '/quem-somos/links'
+      path: '/links'
+      fullPath: '/quem-somos/links'
+      preLoaderRoute: typeof QuemSomosLinksRouteImport
+      parentRoute: typeof QuemSomosRoute
+    }
+    '/quem-somos/estatutos': {
+      id: '/quem-somos/estatutos'
+      path: '/estatutos'
+      fullPath: '/quem-somos/estatutos'
+      preLoaderRoute: typeof QuemSomosEstatutosRouteImport
+      parentRoute: typeof QuemSomosRoute
+    }
+    '/associados/protocolos': {
+      id: '/associados/protocolos'
+      path: '/protocolos'
+      fullPath: '/associados/protocolos'
+      preLoaderRoute: typeof AssociadosProtocolosRouteImport
+      parentRoute: typeof AssociadosRoute
+    }
+    '/associados/painel': {
+      id: '/associados/painel'
+      path: '/painel'
+      fullPath: '/associados/painel'
+      preLoaderRoute: typeof AssociadosPainelRouteImport
+      parentRoute: typeof AssociadosRoute
+    }
+    '/associados/ficha-de-associado': {
+      id: '/associados/ficha-de-associado'
+      path: '/ficha-de-associado'
+      fullPath: '/associados/ficha-de-associado'
+      preLoaderRoute: typeof AssociadosFichaDeAssociadoRouteImport
+      parentRoute: typeof AssociadosRoute
+    }
+    '/associados/protocolos/': {
+      id: '/associados/protocolos/'
+      path: '/'
+      fullPath: '/associados/protocolos/'
+      preLoaderRoute: typeof AssociadosProtocolosIndexRouteImport
+      parentRoute: typeof AssociadosProtocolosRoute
+    }
+    '/associados/protocolos/$slug': {
+      id: '/associados/protocolos/$slug'
+      path: '/$slug'
+      fullPath: '/associados/protocolos/$slug'
+      preLoaderRoute: typeof AssociadosProtocolosSlugRouteImport
+      parentRoute: typeof AssociadosProtocolosRoute
+    }
   }
 }
+
+interface AssociadosProtocolosRouteChildren {
+  AssociadosProtocolosSlugRoute: typeof AssociadosProtocolosSlugRoute
+  AssociadosProtocolosIndexRoute: typeof AssociadosProtocolosIndexRoute
+}
+
+const AssociadosProtocolosRouteChildren: AssociadosProtocolosRouteChildren = {
+  AssociadosProtocolosSlugRoute: AssociadosProtocolosSlugRoute,
+  AssociadosProtocolosIndexRoute: AssociadosProtocolosIndexRoute,
+}
+
+const AssociadosProtocolosRouteWithChildren =
+  AssociadosProtocolosRoute._addFileChildren(AssociadosProtocolosRouteChildren)
+
+interface AssociadosRouteChildren {
+  AssociadosFichaDeAssociadoRoute: typeof AssociadosFichaDeAssociadoRoute
+  AssociadosPainelRoute: typeof AssociadosPainelRoute
+  AssociadosProtocolosRoute: typeof AssociadosProtocolosRouteWithChildren
+  AssociadosIndexRoute: typeof AssociadosIndexRoute
+}
+
+const AssociadosRouteChildren: AssociadosRouteChildren = {
+  AssociadosFichaDeAssociadoRoute: AssociadosFichaDeAssociadoRoute,
+  AssociadosPainelRoute: AssociadosPainelRoute,
+  AssociadosProtocolosRoute: AssociadosProtocolosRouteWithChildren,
+  AssociadosIndexRoute: AssociadosIndexRoute,
+}
+
+const AssociadosRouteWithChildren = AssociadosRoute._addFileChildren(
+  AssociadosRouteChildren,
+)
+
+interface QuemSomosRouteChildren {
+  QuemSomosEstatutosRoute: typeof QuemSomosEstatutosRoute
+  QuemSomosLinksRoute: typeof QuemSomosLinksRoute
+  QuemSomosManifestoSindicalRoute: typeof QuemSomosManifestoSindicalRoute
+  QuemSomosIndexRoute: typeof QuemSomosIndexRoute
+}
+
+const QuemSomosRouteChildren: QuemSomosRouteChildren = {
+  QuemSomosEstatutosRoute: QuemSomosEstatutosRoute,
+  QuemSomosLinksRoute: QuemSomosLinksRoute,
+  QuemSomosManifestoSindicalRoute: QuemSomosManifestoSindicalRoute,
+  QuemSomosIndexRoute: QuemSomosIndexRoute,
+}
+
+const QuemSomosRouteWithChildren = QuemSomosRoute._addFileChildren(
+  QuemSomosRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdesaoRoute: AdesaoRoute,
-  AreaAssociadoRoute: AreaAssociadoRoute,
+  AssociadosRoute: AssociadosRouteWithChildren,
   BeneficiosRoute: BeneficiosRoute,
   ContactosRoute: ContactosRoute,
   NoticiasRoute: NoticiasRoute,
-  QuemSomosRoute: QuemSomosRoute,
+  QuemSomosRoute: QuemSomosRouteWithChildren,
+  VitoriasJudiciaisRoute: VitoriasJudiciaisRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

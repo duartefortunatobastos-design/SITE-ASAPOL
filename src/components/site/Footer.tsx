@@ -1,108 +1,117 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Youtube, Shield, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
+import { AsapolLogo } from "@/components/site/AsapolLogo";
+import { RevealOnScroll } from "@/components/site/RevealOnScroll";
+import { SEDE_ADDRESS } from "@/lib/site";
+
+const socialLinks = [
+  { icon: Facebook, href: "https://www.facebook.com/asapolnacional", label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/asapol_sindicato/", label: "Instagram" },
+  { icon: Youtube, href: "https://www.youtube.com/@asapolosindicato", label: "YouTube" },
+] as const;
+
+const siteLinks = [
+  { to: "/quem-somos", label: "Quem Somos" },
+  { to: "/noticias", label: "Notícias" },
+  { to: "/vitorias-judiciais", label: "Vitórias Judiciais" },
+  { to: "/beneficios", label: "Benefícios" },
+  { to: "/associados/protocolos", label: "Protocolos" },
+  { to: "/contactos", label: "Contactos" },
+] as const;
 
 export function Footer() {
   return (
-    <footer className="bg-navy-gradient text-[var(--navy-foreground)] mt-24">
-      <div className="container-x py-16 grid gap-12 lg:grid-cols-4">
-        <div>
-          <div className="flex items-center gap-2.5 mb-4">
-            <div className="grid h-10 w-10 place-items-center rounded-lg bg-white/10">
-              <Shield className="h-5 w-5 text-[var(--gold)]" strokeWidth={2.5} />
-            </div>
-            <div className="leading-tight">
-              <div className="font-display font-extrabold">ASAPOL</div>
-              <div className="text-[0.65rem] uppercase tracking-[0.18em] text-white/60">
-                Sindicato PSP
-              </div>
-            </div>
+    <footer className="relative mt-24 bg-slate-900 text-slate-200">
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        aria-hidden
+        style={{
+          backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+
+      <div className="container-x relative grid grid-cols-1 gap-10 py-14 md:grid-cols-12">
+        <RevealOnScroll className="md:col-span-5" delay={0}>
+          <div className="flex items-center gap-2.5">
+            <AsapolLogo className="h-11 w-11 rounded-full ring-1 ring-slate-700" />
+            <span className="font-display text-lg font-bold tracking-tight text-white">ASAPOL</span>
           </div>
-          <p className="text-sm text-white/70 leading-relaxed">
-            Associação Sindical Autónoma de Polícia — a voz independente dos
-            profissionais da Polícia de Segurança Pública.
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-400">
+            Associação Sindical Autónoma de Polícia. Defendemos os direitos dos polícias
+            portugueses com independência e transparência.
           </p>
-          <div className="flex gap-3 mt-5">
-            {[Facebook, Instagram, Linkedin, Youtube].map((Icon, i) => (
+          <div className="mt-5 flex items-center gap-2">
+            {socialLinks.map(({ icon: Icon, href, label }) => (
               <a
-                key={i}
-                href="#"
-                className="grid h-9 w-9 place-items-center rounded-full bg-white/10 hover:bg-[var(--gold)] hover:text-[var(--navy)] transition-colors"
-                aria-label="Rede social"
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="grid h-9 w-9 place-items-center rounded-full bg-slate-800 transition hover:bg-brand hover:scale-110"
               >
                 <Icon className="h-4 w-4" />
               </a>
             ))}
           </div>
-        </div>
+        </RevealOnScroll>
 
-        <div>
-          <h4 className="font-display font-semibold mb-4 text-sm uppercase tracking-wider text-[var(--gold)]">
-            Navegação
-          </h4>
-          <ul className="space-y-2.5 text-sm text-white/80">
-            {[
-              ["/", "Início"],
-              ["/quem-somos", "Quem Somos"],
-              ["/beneficios", "Benefícios"],
-              ["/noticias", "Notícias"],
-              ["/adesao", "Adesão"],
-              ["/contactos", "Contactos"],
-            ].map(([to, label]) => (
+        <RevealOnScroll className="md:col-span-3" delay={120}>
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+            Mapa do site
+          </h3>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            {siteLinks.map(({ to, label }) => (
               <li key={to}>
-                <Link to={to} className="hover:text-[var(--gold)] transition-colors">
+                <Link to={to} className="text-slate-300 transition hover:text-white">
                   {label}
                 </Link>
               </li>
             ))}
+            <li>
+              <Link to="/adesao" className="font-semibold text-white transition hover:text-white/90">
+                Tornar-me sócio →
+              </Link>
+            </li>
           </ul>
-        </div>
+        </RevealOnScroll>
 
-        <div>
-          <h4 className="font-display font-semibold mb-4 text-sm uppercase tracking-wider text-[var(--gold)]">
+        <RevealOnScroll className="md:col-span-4" delay={240}>
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400">
             Contactos
-          </h4>
-          <ul className="space-y-3 text-sm text-white/80">
-            <li className="flex gap-2.5"><MapPin className="h-4 w-4 shrink-0 mt-0.5 text-[var(--gold)]" />Av. da Liberdade, 1250-096 Lisboa</li>
-            <li className="flex gap-2.5"><Phone className="h-4 w-4 shrink-0 mt-0.5 text-[var(--gold)]" />+351 210 000 000</li>
-            <li className="flex gap-2.5"><Mail className="h-4 w-4 shrink-0 mt-0.5 text-[var(--gold)]" />geral@asapol.pt</li>
+          </h3>
+          <ul className="mt-4 space-y-3.5 text-sm">
+            <li className="flex items-start gap-2.5">
+              <MapPin size={16} className="mt-0.5 shrink-0 text-slate-500" />
+              <span className="text-slate-300">{SEDE_ADDRESS}</span>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Mail size={16} className="shrink-0 text-slate-500" />
+              <a
+                href="mailto:sede@asapol.net"
+                className="text-slate-300 transition hover:text-white"
+              >
+                sede@asapol.net
+              </a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Phone size={16} className="shrink-0 text-slate-500" />
+              <a href="tel:+351919731911" className="text-slate-300 transition hover:text-white">
+                919 731 911
+              </a>
+            </li>
           </ul>
-        </div>
-
-        <div>
-          <h4 className="font-display font-semibold mb-4 text-sm uppercase tracking-wider text-[var(--gold)]">
-            Newsletter
-          </h4>
-          <p className="text-sm text-white/70 mb-3">
-            Receba as últimas novidades e comunicados sindicais.
-          </p>
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="flex gap-2"
-          >
-            <input
-              type="email"
-              placeholder="O seu email"
-              className="flex-1 min-w-0 rounded-md bg-white/10 border border-white/15 px-3 py-2 text-sm placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[var(--gold)]"
-            />
-            <button
-              type="submit"
-              className="rounded-md bg-gold-gradient px-3 py-2 text-sm font-semibold text-[var(--navy)] hover:opacity-90"
-            >
-              Subscrever
-            </button>
-          </form>
-        </div>
+        </RevealOnScroll>
       </div>
 
-      <div className="border-t border-white/10">
-        <div className="container-x py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/60">
-          <div>© {new Date().getFullYear()} ASAPOL. Todos os direitos reservados.</div>
-          <div className="flex gap-5">
-            <a href="#" className="hover:text-[var(--gold)]">Política de Privacidade</a>
-            <a href="#" className="hover:text-[var(--gold)]">Termos e Condições</a>
-            <a href="#" className="hover:text-[var(--gold)]">Cookies</a>
+      <div className="border-t border-slate-800">
+        <RevealOnScroll animation="animate-fade-in" delay={360}>
+          <div className="container-x flex flex-col items-center justify-between gap-2 py-5 text-xs text-slate-500 sm:flex-row">
+            <span>© {new Date().getFullYear()} ASAPOL — Todos os direitos reservados.</span>
+            <span>Direção Nacional</span>
           </div>
-        </div>
+        </RevealOnScroll>
       </div>
     </footer>
   );

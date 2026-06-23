@@ -1,0 +1,495 @@
+[
+  {
+    "id": "nacionais",
+    "name": "Nacionais",
+    "protocols": [
+      {
+        "name": "Alberto Oculista",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/Alberto%20Oculista.pdf",
+        "logo": "/protocolos/logos/Alberto Oculista.png"
+      },
+      {
+        "name": "ACP",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/ACP.pdf",
+        "logo": "/protocolos/logos/ACP.png"
+      },
+      {
+        "name": "Meo",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/meo.pdf",
+        "logo": "/protocolos/logos/Meo.png"
+      },
+      {
+        "name": "Gaes",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/Gaes.pdf",
+        "logo": "/protocolos/logos/Gaes.jpg"
+      },
+      {
+        "name": "Vilagale",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/vilagale.pdf",
+        "logo": "/protocolos/logos/Vilagale.png"
+      },
+      {
+        "name": "Galp",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/galp.pdf",
+        "logo": "/protocolos/logos/Galp.png"
+      },
+      {
+        "name": "AudicaoAtiva",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/AudicaoAtiva.pdf",
+        "logo": "/protocolos/logos/AudicaoAtiva.png"
+      },
+      {
+        "name": "Bioforma",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/bioforma.pdf",
+        "logo": "/protocolos/logos/Bioforma.png"
+      },
+      {
+        "name": "Companhia",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/companhia.pdf",
+        "logo": "/protocolos/logos/Companhia.png"
+      },
+      {
+        "name": "Lojadassopas",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/lojadassopas.pdf",
+        "logo": "/protocolos/logos/Lojadassopas.png"
+      },
+      {
+        "name": "Selfish",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/selfish.pdf",
+        "logo": "/protocolos/logos/Selfish.jpg"
+      },
+      {
+        "name": "Pestana",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/pestana.pdf",
+        "logo": "/protocolos/logos/Pestana.png"
+      },
+      {
+        "name": "Grupotico",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/grupotico.pdf",
+        "logo": "/protocolos/logos/Grupotico.png"
+      },
+      {
+        "name": "Midas",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/midas.pdf",
+        "logo": "/protocolos/logos/Midas.png"
+      },
+      {
+        "name": "Turiscar",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/turiscar.pdf",
+        "logo": "/protocolos/logos/Turiscar.jpg"
+      },
+      {
+        "name": "Floresflores",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/floresflores.pdf",
+        "logo": "/protocolos/logos/Floresflores.png"
+      },
+      {
+        "name": "Canaverde",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/canaverde.pdf",
+        "logo": "/protocolos/logos/Canaverde.png"
+      },
+      {
+        "name": "Repsol",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/repsol.pdf",
+        "logo": "/protocolos/logos/Repsol.jpg"
+      },
+      {
+        "name": "BlandyTravel",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/BlandyTravel.pdf",
+        "logo": "/protocolos/logos/BlandyTravel.png"
+      },
+      {
+        "name": "Travelutions",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/Travelutions.pdf",
+        "logo": "/protocolos/logos/Travelutions.png"
+      },
+      {
+        "name": "Basilico",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/basilico.pdf",
+        "logo": "/protocolos/logos/Basilico.png"
+      },
+      {
+        "name": "DS",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/DS.pdf",
+        "logo": "/protocolos/logos/DS.jpg"
+      }
+    ]
+  },
+  {
+    "id": "lisboa",
+    "name": "Lisboa",
+    "protocols": [
+      {
+        "name": "Best Travel Belem",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/Best%20Travel%20Belem.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/Bestravel.gif"
+      },
+      {
+        "name": "Funny Bubbles",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/Funny%20Bubbles.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/Funny%20Bubbles.gif"
+      },
+      {
+        "name": "Fabrica De Oculos Do Chiado",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/fabrica%20de%20oculos%20do%20chiado.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/fabrica%20de%20oculos%20do%20chiado.gif"
+      },
+      {
+        "name": "Garagempocodobispo",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/garagempocodobispo.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/garagempocodobispo.gif"
+      },
+      {
+        "name": "Hotel Camarao",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/Hotel%20camarao.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/Hotel%20camarao.gif"
+      },
+      {
+        "name": "Espingardaria Belga",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/Espingardaria%20belga.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/espingardaria%20belga.gif"
+      },
+      {
+        "name": "Reiki",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/Reiki.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/Reiki.gif"
+      },
+      {
+        "name": "Afarmacia",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/afarmacia.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/afarmacia.gif"
+      },
+      {
+        "name": "Farmaciabarral",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/farmaciabarral.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/farmaciabarral.gif"
+      },
+      {
+        "name": "Farmaciajeronimos",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/farmaciajeronimos.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/farmaciajeronimos.gif"
+      },
+      {
+        "name": "Farmaciaoriental",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/farmaciaoriental.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/farmaciaoriental.gif"
+      },
+      {
+        "name": "Twentyone",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/twentyone.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/twentyone.gif"
+      },
+      {
+        "name": "Autopimpao",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/autopimpao.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/autopimpao.gif"
+      },
+      {
+        "name": "Cardosoptic",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/cardosoptic.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/cardosoptic.gif"
+      },
+      {
+        "name": "Opticalia",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/opticalia.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/opticalia.gif"
+      },
+      {
+        "name": "Gesloures",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/gesloures.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/gesloures.gif"
+      }
+    ]
+  },
+  {
+    "id": "setubal",
+    "name": "Setúbal",
+    "protocols": [
+      {
+        "name": "Marcodiesel",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/marcodiesel.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/marcodiesel.gif"
+      },
+      {
+        "name": "Colegiodovale",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/colegiodovale.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/colegiodovale.gif"
+      },
+      {
+        "name": "Nestpaintball",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/nestpaintball.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/nestpaintball.gif"
+      },
+      {
+        "name": "Bykemania",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/Bykemania.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/bikemania.gif"
+      },
+      {
+        "name": "Quintinhadomonte",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/quintinhadomonte.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/quintinhadomonte.gif"
+      }
+    ]
+  },
+  {
+    "id": "ilhas",
+    "name": "Ilhas",
+    "protocols": [
+      {
+        "name": "Praia Cultural",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/praia%20cultural.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/Praia%20Cultura.gif"
+      },
+      {
+        "name": "Lubrificadorafaial",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/lubrificadorafaial.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/lubrificadorafaial.gif"
+      },
+      {
+        "name": "Cassianos",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/cassianos.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/cassianos.gif"
+      },
+      {
+        "name": "Dentariafunchal",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/dentariafunchal.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/dentariafunchal.gif"
+      },
+      {
+        "name": "vulca25abril",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/vulca25abril.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/vulca25abril.gif"
+      },
+      {
+        "name": "Perolavinhos",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/perolavinhos.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/perolavinhos.gif"
+      },
+      {
+        "name": "Autotudo",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/autotudo.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/autotudo.gif"
+      },
+      {
+        "name": "Salesfariaandrade",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/salesfariaandrade.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/salesfariaandrade.gif"
+      },
+      {
+        "name": "Gaspar Oculista",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/gaspar%20oculista.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/gaspar%20oculista.gif"
+      },
+      {
+        "name": "Almadeira",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/almadeira.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/almadeira.gif"
+      }
+    ]
+  },
+  {
+    "id": "coimbra",
+    "name": "Coimbra",
+    "protocols": [
+      {
+        "name": "Pneus Oceano",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/pneus%20oceano.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/pneus%20oceano.gif"
+      },
+      {
+        "name": "Euvascogama",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/euvascogama.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/euvascogama.gif"
+      },
+      {
+        "name": "Nelsongym",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/nelsongym.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/nelsongym.gif"
+      },
+      {
+        "name": "Iscac",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/iscac.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/iscac.gif"
+      },
+      {
+        "name": "Oficinasaraiva",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/oficinasaraiva.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/oficinasaraiva.gif"
+      },
+      {
+        "name": "clinic4you",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/clinic4you.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/clinic4you.gif"
+      }
+    ]
+  },
+  {
+    "id": "algarve",
+    "name": "Algarve",
+    "protocols": [
+      {
+        "name": "Quinta Do Lamijo",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/Quinta%20do%20Lamijo.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/Quinta%20do%20Lamijo.gif"
+      },
+      {
+        "name": "Marcodiesel",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/marcodiesel.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/marcodiesel.gif"
+      },
+      {
+        "name": "Farmaciadorio",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/farmaciadorio.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/farmaciadorio.gif"
+      },
+      {
+        "name": "Farmaciaribeirolopes",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/farmaciaribeirolopes.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/farmaciaribeirolopes.gif"
+      },
+      {
+        "name": "Krazyworldzoo",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/krazyworldzoo.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/krazyworldzoo.gif"
+      },
+      {
+        "name": "Apartamentosmontegordo",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/apartamentosmontegordo.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/apartamentosmontegordo.gif"
+      },
+      {
+        "name": "Churrasqueira Arenilha",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/churrasqueira%20arenilha.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/churrasqueira%20arenilha.gif"
+      },
+      {
+        "name": "Hospedaria Arenilha",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/hospedaria%20arenilha.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/hospedaria%20arenilha.gif"
+      },
+      {
+        "name": "Hospedaria Coracao Da Cidade",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/hospedaria%20coracao%20da%20cidade.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/hospedaria%20coracao%20da%20cidade.gif"
+      },
+      {
+        "name": "Restaurante Coracao Da Cidade",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/restaurante%20coracao%20da%20cidade.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/restaurante%20coracao%20da%20cidade.gif"
+      },
+      {
+        "name": "coraçao Do Marques",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/cora%C3%A7ao%20do%20marques.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/cora%C3%A7ao%20do%20marques.gif"
+      },
+      {
+        "name": "Vila Caseira",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/vila%20caseira.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/vila%20caseira.gif"
+      },
+      {
+        "name": "Farmacia Oliveira Da Silva",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/farmacia%20oliveira%20da%20silva.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/farmacia%20oliveira%20da%20silva.gif"
+      },
+      {
+        "name": "Epc Escola De Conducao",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/epc%20-%20escola%20de%20conducao.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/epc%20-%20escola%20de%20conducao.gif"
+      },
+      {
+        "name": "Escola Conducao Infante Sagres",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/escola%20conducao%20-%20infante%20sagres.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/escola%20conducao%20-%20infante%20sagres.gif"
+      },
+      {
+        "name": "Escola De Conducao Louletana",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/escola%20de%20conducao%20-%20louletana.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/escola%20de%20conducao%20-%20louletana.gif"
+      },
+      {
+        "name": "Alturasol",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/alturasol.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/alturasol.gif"
+      },
+      {
+        "name": "Psifaro",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/psifaro.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/psifaro.gif"
+      },
+      {
+        "name": "personal20",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/personal20.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/personal20.gif"
+      }
+    ]
+  },
+  {
+    "id": "porto",
+    "name": "Porto",
+    "protocols": [
+      {
+        "name": "Barcadouro",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/Barcadouro.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/Barcadouro.gif"
+      },
+      {
+        "name": "Nutricaofacil",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/nutricaofacil.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/nutricaofacil.gif"
+      },
+      {
+        "name": "Drosa",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/drosa.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/drosa.gif"
+      },
+      {
+        "name": "Jorge Amortecedores",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/jorge%20amortecedores.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/jorge%20amortecedores.gif"
+      },
+      {
+        "name": "Debora Monteiro.pdf",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/Debora%2520Monteiro.pdf%0D%0A",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/db.gif"
+      }
+    ]
+  },
+  {
+    "id": "outros",
+    "name": "Outros",
+    "protocols": [
+      {
+        "name": "Residencial Filipe",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/residencial%20filipe.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/Residencial%20Filipe%20.gif"
+      },
+      {
+        "name": "Oticahavanesa",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/oticahavanesa.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/oticahavanesa.gif"
+      },
+      {
+        "name": "Egipneus",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/egipneus.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/egipneus.gif"
+      },
+      {
+        "name": "Clinicadosanjos",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/clinicadosanjos.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/clinicadosanjos.gif"
+      },
+      {
+        "name": "Ginasiomiracorgo",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/ginasiomiracorgo.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/ginasiomiracorgo.gif"
+      },
+      {
+        "name": "Pontoequilibrio",
+        "pdf": "https://www.asapol.net/asapol/protocolos/pdf/pontoequilibrio.pdf",
+        "logo": "https://www.asapol.net/asapol/protocolos/logo/pontoequilibrio.gif"
+      }
+    ]
+  }
+]

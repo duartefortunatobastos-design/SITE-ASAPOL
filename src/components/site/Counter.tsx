@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 
-export function Counter({ end, suffix = "", duration = 1800 }: { end: number; suffix?: string; duration?: number }) {
+export function Counter({
+  end,
+  suffix = "",
+  duration = 1800,
+}: {
+  end: number;
+  suffix?: string;
+  duration?: number;
+}) {
   const [val, setVal] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
@@ -8,6 +16,10 @@ export function Counter({ end, suffix = "", duration = 1800 }: { end: number; su
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    setVal(0);
+    started.current = false;
+
     const obs = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !started.current) {
@@ -22,7 +34,7 @@ export function Counter({ end, suffix = "", duration = 1800 }: { end: number; su
           requestAnimationFrame(step);
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
     obs.observe(el);
     return () => obs.disconnect();
