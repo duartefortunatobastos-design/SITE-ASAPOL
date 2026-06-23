@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import {
   nacionalCategories,
   protocolLabel,
+  protocolAssetUrl,
   protocolSlug,
   regions,
   type ProtocolMeta,
@@ -136,7 +137,7 @@ function ProtocolCard({ protocol, category }: { protocol: ProtocolMeta; category
 
         <div className="mt-3 flex min-h-[7.5rem] items-center justify-center rounded-xl border border-border/70 bg-muted/35 p-4">
           <img
-            src={protocol.logo}
+            src={protocolAssetUrl(protocol.logo)}
             alt={label}
             loading="lazy"
             className="max-h-20 w-full object-contain"

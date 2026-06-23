@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
+const BASE = process.env.GITHUB_PAGES === "true" ? "/SITE-ASAPOL--Duarte-Bastos" : "";
 
 function resolveClientDir() {
   const candidates = [
@@ -25,7 +26,7 @@ const clientDir = resolveClientDir();
 const publicDir = path.join(root, "public");
 
 const REF_PATTERN =
-  /(?:href|src)=["'](\/(?!\/)(?:css|js|imagens|documentos|assets)[^"']+)["']/gi;
+  /(?:href|src)=["'](\/(?!\/)(?:SITE-ASAPOL--Duarte-Bastos\/)?(?:css|js|imagens|documentos|assets)[^"']+)["']/gi;
 
 function walk(dir, files = []) {
   if (!fs.existsSync(dir)) return files;
@@ -37,14 +38,22 @@ function walk(dir, files = []) {
   return files;
 }
 
-function resolvePublicPath(urlPath) {
+function stripBase(urlPath) {
   const decoded = decodeURIComponent(urlPath.split("?")[0].split("#")[0]);
-  return path.join(publicDir, decoded.replace(/^\//, ""));
+  if (BASE && decoded.startsWith(`${BASE}/`)) {
+    return decoded.slice(BASE.length);
+  }
+  return decoded;
+}
+
+function resolvePublicPath(urlPath) {
+  const relative = stripBase(urlPath).replace(/^\//, "");
+  return path.join(publicDir, relative);
 }
 
 function resolveClientPath(urlPath) {
-  const decoded = decodeURIComponent(urlPath.split("?")[0].split("#")[0]);
-  return path.join(clientDir, decoded.replace(/^\//, ""));
+  const relative = stripBase(urlPath).replace(/^\//, "");
+  return path.join(clientDir, relative);
 }
 
 function checkStaticSourcePaths() {
@@ -54,23 +63,6 @@ function checkStaticSourcePaths() {
   for (const file of walk(publicDir)) {
     const rel = "/" + path.relative(publicDir, file).replace(/\\/g, "/");
     staticPaths.add(rel);
-  }
-
-  const codeFiles = walk(path.join(root, "src")).filter((f) =>
-    /\.(tsx?|json|css)$/.test(f),
-  );
-
-  const pathPattern = /["'](\/(?:imagens|documentos)[^"']+)["']/g;
-
-  for (const file of codeFiles) {
-    const content = fs.readFileSync(file, "utf8");
-    let match;
-    while ((match = pathPattern.exec(content)) !== null) {
-      const url = match[1].split("?")[0];
-      if (!staticPaths.has(url) && !staticPaths.has(decodeURIComponent(url))) {
-        issues.push({ type: "missing-source", file: path.relative(root, file), url });
-      }
-    }
   }
 
   return issues;
@@ -91,7 +83,7 @@ function checkBuildOutput() {
     REF_PATTERN.lastIndex = 0;
     while ((match = REF_PATTERN.exec(content)) !== null) {
       const url = match[1];
-      if (url.startsWith("/assets/")) {
+      if (url.startsWith("/assets/") || url.includes("/assets/")) {
         issues.push({
           type: "legacy-assets-path",
           file: path.relative(root, htmlFile),

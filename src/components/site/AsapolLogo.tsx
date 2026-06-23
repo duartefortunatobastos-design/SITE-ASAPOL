@@ -1,11 +1,12 @@
+import { publicUrl } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const alt = "ASAPOL — Associação Sindical Autónoma de Polícia";
 
 const logoSources = {
-  full: "/imagens/site/asapol-logo.png",
-  emblem: "/imagens/site/asapol-emblem.png",
-  hero: "/imagens/site/asapol-logo-hero.jpg",
+  full: publicUrl("imagens/site/asapol-logo.png"),
+  emblem: publicUrl("imagens/site/asapol-emblem.png"),
+  hero: publicUrl("imagens/site/asapol-logo-hero.jpg"),
 } as const;
 
 export function AsapolLogo({

@@ -8,22 +8,35 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
+const BASE = process.env.GITHUB_PAGES === "true" ? "/SITE-ASAPOL--Duarte-Bastos/" : "/";
 
 function resolveClientDir() {
+  const distClient = path.join(root, "dist", "client");
+  if (fs.existsSync(path.join(distClient, "index.html"))) {
+    return distClient;
+  }
+
+  if (process.env.GITHUB_PAGES === "true") {
+    return distClient;
+  }
+
   const candidates = [
-    path.join(root, "dist", "client"),
     path.join(root, "dist"),
     path.join(root, ".vercel", "output", "static"),
   ];
   for (const dir of candidates) {
     if (fs.existsSync(path.join(dir, "index.html"))) return dir;
   }
-  return path.join(root, "dist", "client");
+  return distClient;
 }
 
 const clientDir = resolveClientDir();
 
-const ASSET_PREFIX = "/assets/";
+function withBase(urlPath) {
+  if (!urlPath.startsWith("/")) return urlPath;
+  if (BASE === "/") return urlPath;
+  return `${BASE.replace(/\/$/, "")}${urlPath}`;
+}
 
 function walk(dir, files = []) {
   if (!fs.existsSync(dir)) return files;
@@ -60,16 +73,62 @@ function moveAssetsFolder() {
   }
 }
 
+function rewriteAssetPath(pathWithAssetsPrefix, targetFolder) {
+  const file = pathWithAssetsPrefix.replace(/^.*\/assets\//, "");
+  return withBase(`/${targetFolder}/${file}`);
+}
+
+function rewriteHashLinks(html) {
+  if (BASE === "/") return html;
+
+  const baseNoSlash = BASE.replace(/\/$/, "");
+  const esc = baseNoSlash.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const assetPrefixes = new Set(["css", "js", "imagens", "documentos"]);
+
+  const toHashHref = (pathPart) => {
+    const normalized = pathPart.startsWith("/") ? pathPart : `/${pathPart}`;
+    if (normalized === "/" || normalized === "") return "#/";
+    const firstSeg = normalized.replace(/^\//, "").split("/")[0];
+    if (assetPrefixes.has(firstSeg)) return null;
+    return `#${normalized}`;
+  };
+
+  return html.replace(
+    new RegExp(`href=(["'])${esc}([^"']*)\\1`, "g"),
+    (match, quote, rest) => {
+      const hashHref = toHashHref(rest === "" ? "/" : `/${rest.replace(/^\//, "")}`);
+      return hashHref ? `href=${quote}${hashHref}${quote}` : match;
+    },
+  );
+}
+
 function rewriteHtmlPaths(htmlPath) {
   let html = fs.readFileSync(htmlPath, "utf8");
   const before = html;
 
-  html = html.replace(/\/assets\/([^"'\s>]+\.css)/g, "/css/$1");
-  html = html.replace(/\/assets\/([^"'\s>]+\.js)/g, "/js/$1");
-  html = html.replace(
-    /\/assets\/([^"'\s>]+\.(?:png|jpe?g|gif|svg|webp|ico|avif))/gi,
-    "/imagens/$1",
+  const basePattern =
+    BASE === "/"
+      ? ""
+      : BASE.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\/$/, "");
+
+  const assetPrefix = basePattern ? `${basePattern}/assets/` : "/assets/";
+
+  html = html.replace(new RegExp(`${assetPrefix}([^"'\\s>]+\\.css)`, "g"), (_, file) =>
+    rewriteAssetPath(`/assets/${file}`, "css"),
   );
+  html = html.replace(new RegExp(`${assetPrefix}([^"'\\s>]+\\.js)`, "g"), (_, file) =>
+    rewriteAssetPath(`/assets/${file}`, "js"),
+  );
+  html = html.replace(
+    new RegExp(`${assetPrefix}([^"'\\s>]+\\.(?:png|jpe?g|gif|svg|webp|ico|avif))`, "gi"),
+    (_, file) => rewriteAssetPath(`/assets/${file}`, "imagens"),
+  );
+
+  // Corrigir caminhos absolutos sem base (builds antigos)
+  if (BASE !== "/") {
+    html = html.replace(/(href|src)=["']\/(css|js|imagens)\//g, `$1="${BASE}$2/`);
+    html = rewriteHashLinks(html);
+  }
 
   if (html !== before) {
     fs.writeFileSync(htmlPath, html, "utf8");
@@ -102,7 +161,6 @@ function copyToRoot() {
     }
   }
 
-  // Copiar páginas pré-renderizadas (subpastas com index.html)
   for (const entry of fs.readdirSync(clientDir, { withFileTypes: true })) {
     if (!entry.isDirectory()) continue;
     if (["css", "js", "imagens", "documentos", "assets"].includes(entry.name)) continue;
@@ -134,7 +192,7 @@ function main() {
   }
 
   console.log(
-    `[deploy] Estrutura pronta em ${path.relative(root, clientDir)} e cópia na raiz do projeto.`,
+    `[deploy] Estrutura pronta em ${path.relative(root, clientDir)} (base: ${BASE}).`,
   );
 }
 

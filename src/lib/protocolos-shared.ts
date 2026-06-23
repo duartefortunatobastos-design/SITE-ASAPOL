@@ -1,4 +1,5 @@
 import protocolosData from "@/lib/protocolos-data.json";
+import { publicUrl } from "@/lib/site";
 
 export type ProtocolMeta = { name: string; pdf: string; logo: string };
 export type Region = { id: string; name: string; protocols: ProtocolMeta[] };
@@ -55,6 +56,11 @@ export const nacionalCategories: Record<string, string> = {
 
 export function protocolLabel(name: string) {
   return displayNames[name] ?? name;
+}
+
+export function protocolAssetUrl(path: string) {
+  if (/^https?:\/\//i.test(path)) return path;
+  return publicUrl(path);
 }
 
 export function protocolSlug(name: string) {

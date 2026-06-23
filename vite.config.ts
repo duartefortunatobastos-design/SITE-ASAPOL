@@ -6,8 +6,15 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+const GITHUB_PAGES_BASE = "/SITE-ASAPOL--Duarte-Bastos/";
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+
 export default defineConfig({
   vite: {
+    base: isGitHubPages ? GITHUB_PAGES_BASE : "/",
+    define: {
+      "import.meta.env.VITE_USE_HASH_ROUTER": JSON.stringify(isGitHubPages),
+    },
     server: {
       open: true,
     },
@@ -22,8 +29,8 @@ export default defineConfig({
     server: { entry: "server" },
     prerender: {
       enabled: true,
-      crawlLinks: true,
-      autoSubfolderIndex: true,
+      crawlLinks: !isGitHubPages,
+      autoSubfolderIndex: !isGitHubPages,
     },
   },
 });

@@ -15,3 +15,10 @@ export function googleMapsEmbedUrl(coords: { lat: number; lng: number }, zoom = 
   const { lat, lng } = coords;
   return `https://www.google.com/maps?q=${lat},${lng}&ll=${lat},${lng}&hl=pt&z=${zoom}&output=embed`;
 }
+
+/** Caminho público com suporte a subpastas (ex.: GitHub Pages). */
+export function publicUrl(path: string): string {
+  const base = import.meta.env.BASE_URL;
+  const clean = path.startsWith("/") ? path.slice(1) : path;
+  return `${base}${clean}`;
+}

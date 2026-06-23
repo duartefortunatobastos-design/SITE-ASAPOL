@@ -4,6 +4,7 @@ import { useState, type ReactNode } from "react";
 import { PageHeader } from "@/components/site/PageHeader";
 import { RevealButton } from "@/components/site/RevealButton";
 import { RevealItem, RevealOnScroll } from "@/components/site/RevealOnScroll";
+import { publicUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/associados/ficha-de-associado")({
   head: () => ({
@@ -32,11 +33,11 @@ const quotas = [
 ] as const;
 
 const documents = {
-  propostaDoc: "/documentos/Ficha%20Socio%20ASAPOL.doc",
-  propostaPdf: "/documentos/Ficha%20Socio%20ASAPOL.pdf",
-  vantagensFlyer: "/imagens/documentos/vantagens-socio-asapol.png",
-  desistenciaDoc: "/documentos/desistencia.docx",
-  desistenciaPdf: "/documentos/desistencia.pdf",
+  propostaDoc: publicUrl("documentos/Ficha%20Socio%20ASAPOL.doc"),
+  propostaPdf: publicUrl("documentos/Ficha%20Socio%20ASAPOL.pdf"),
+  vantagensFlyer: publicUrl("imagens/documentos/vantagens-socio-asapol.png"),
+  desistenciaDoc: publicUrl("documentos/desistencia.docx"),
+  desistenciaPdf: publicUrl("documentos/desistencia.pdf"),
 } as const;
 
 const emailTemplate = `À Direcção Nacional da ASAPOL

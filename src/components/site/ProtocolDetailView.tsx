@@ -10,7 +10,7 @@ import {
   googleMapsEmbedUrl,
   googleMapsSearchUrl,
 } from "@/lib/google-maps";
-import { nacionalCategories, protocolLabel } from "@/lib/protocolos-shared";
+import { nacionalCategories, protocolAssetUrl, protocolLabel } from "@/lib/protocolos-shared";
 
 type ProtocolDetailViewProps = {
   title: string;
@@ -74,7 +74,7 @@ export function ProtocolDetailView({
               <div className="h-1 bg-pt-gradient" />
               <div className="p-8 md:p-12">
                 <div className="flex flex-col items-center justify-center rounded-2xl border border-border/70 bg-muted/35 p-8">
-                  <img src={logo} alt={logoAlt} className="max-h-28 w-full object-contain" />
+                  <img src={protocolAssetUrl(logo)} alt={logoAlt} className="max-h-28 w-full object-contain" />
                 </div>
 
                 <p className="mt-6 text-muted-foreground leading-relaxed">{description}</p>
