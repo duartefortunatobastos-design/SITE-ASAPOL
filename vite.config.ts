@@ -12,6 +12,10 @@ export default defineConfig({
       open: true,
     },
   },
+  nitro:
+    process.env.VERCEL === "1"
+      ? { preset: "vercel" }
+      : false,
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this

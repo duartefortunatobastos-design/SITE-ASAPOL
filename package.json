@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:deploy": "vite build && node scripts/reorganize-deploy.mjs && node scripts/verify-deploy-paths.mjs",
+    "verify:deploy": "node scripts/verify-deploy-paths.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",

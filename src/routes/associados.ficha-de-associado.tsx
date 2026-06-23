@@ -34,7 +34,7 @@ const quotas = [
 const documents = {
   propostaDoc: "/documentos/Ficha%20Socio%20ASAPOL.doc",
   propostaPdf: "/documentos/Ficha%20Socio%20ASAPOL.pdf",
-  vantagensFlyer: "/documentos/vantagens-socio-asapol.png",
+  vantagensFlyer: "/imagens/documentos/vantagens-socio-asapol.png",
   desistenciaDoc: "/documentos/desistencia.docx",
   desistenciaPdf: "/documentos/desistencia.pdf",
 } as const;

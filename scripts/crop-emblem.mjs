@@ -1,6 +1,6 @@
 import sharp from "sharp";
 
-const src = "src/assets/asapol-logo.png";
+const src = "public/imagens/site/asapol-logo.png";
 const meta = await sharp(src).metadata();
 const size = Math.min(meta.width, meta.height);
 const inner = Math.round(size * 0.58);
@@ -15,6 +15,6 @@ await sharp(src)
   .extract({ left, top, width: inner, height: inner })
   .composite([{ input: circle, blend: "dest-in" }])
   .png()
-  .toFile("src/assets/asapol-emblem.png");
+  .toFile("public/imagens/site/asapol-emblem.png");
 
 console.log("Created asapol-emblem.png", { inner, left, top });

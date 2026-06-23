@@ -10,7 +10,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import asapolLogo from "../assets/asapol-logo.png?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
@@ -128,8 +127,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: asapolLogo, type: "image/png" },
-      { rel: "apple-touch-icon", href: asapolLogo },
+      { rel: "icon", href: "/imagens/site/asapol-logo.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/imagens/site/asapol-logo.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

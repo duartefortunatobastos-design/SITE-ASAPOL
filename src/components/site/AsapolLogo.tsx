@@ -1,9 +1,12 @@
-import asapolLogo from "@/assets/asapol-logo.png";
-import asapolEmblem from "@/assets/asapol-emblem.png";
-import asapolLogoHero from "@/assets/asapol-logo-hero.jpg";
 import { cn } from "@/lib/utils";
 
 const alt = "ASAPOL — Associação Sindical Autónoma de Polícia";
+
+const logoSources = {
+  full: "/imagens/site/asapol-logo.png",
+  emblem: "/imagens/site/asapol-emblem.png",
+  hero: "/imagens/site/asapol-logo-hero.jpg",
+} as const;
 
 export function AsapolLogo({
   className,
@@ -12,8 +15,7 @@ export function AsapolLogo({
   className?: string;
   variant?: "full" | "emblem" | "hero";
 }) {
-  const src =
-    variant === "hero" ? asapolLogoHero : variant === "emblem" ? asapolEmblem : asapolLogo;
+  const src = logoSources[variant];
 
   return (
     <img
