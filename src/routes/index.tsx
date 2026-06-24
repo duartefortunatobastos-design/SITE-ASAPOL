@@ -12,11 +12,13 @@ import {
 } from "lucide-react";
 import { AsapolLogo } from "@/components/site/AsapolLogo";
 import { BannerStagger, BannerSurface } from "@/components/site/BannerSurface";
+import { NewsCover } from "@/components/site/NewsCover";
 import { QuoteMark } from "@/components/site/QuoteMark";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { RevealButton } from "@/components/site/RevealButton";
 import { RevealItem, RevealOnScroll } from "@/components/site/RevealOnScroll";
+import { homepageNews } from "@/lib/noticias-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -68,28 +70,6 @@ const benefits = [
     icon: HeartHandshake,
     title: "Apoio ao Associado",
     text: "Acompanhamento personalizado e proximidade real.",
-  },
-];
-
-const news = [
-  {
-    cat: "Sindicato",
-    title: "ASAPOL reúne-se com o MAI para discutir suplementos da PSP",
-    summary:
-      "A direção da ASAPOL apresentou propostas concretas para a valorização dos profissionais da Polícia.",
-    date: "12 Jun 2026",
-  },
-  {
-    cat: "Legislação",
-    title: "Novo regulamento de serviço: o que muda para os agentes",
-    summary: "Análise jurídica detalhada das alterações que entram em vigor no próximo trimestre.",
-    date: "08 Jun 2026",
-  },
-  {
-    cat: "Formação",
-    title: "Abertas inscrições para o ciclo de formação 2026/2027",
-    summary: "Mais de 30 ações de formação certificadas, disponíveis para todos os associados.",
-    date: "02 Jun 2026",
   },
 ];
 
@@ -243,7 +223,7 @@ function HomePage() {
             </RevealButton>
           </div>
           <div className="mt-12 grid gap-7 md:grid-cols-3">
-            {news.map((n, i) => (
+            {homepageNews.map((n, i) => (
               <RevealItem
                 key={i}
                 index={i}
@@ -251,11 +231,11 @@ function HomePage() {
                 as="article"
                 className="group rounded-2xl bg-card border border-border overflow-hidden shadow-card hover:shadow-elegant transition-shadow duration-300"
               >
-                <div className="aspect-[16/10] bg-navy-gradient relative">
+                <NewsCover src={n.image} alt={n.title} className="aspect-[16/10]">
                   <div className="absolute top-4 left-4 rounded-full bg-[var(--gold)] text-white px-3 py-1 text-xs font-semibold uppercase tracking-wider">
                     {n.cat}
                   </div>
-                </div>
+                </NewsCover>
                 <div className="p-6">
                   <div className="text-xs uppercase tracking-wider text-muted-foreground">
                     {n.date}

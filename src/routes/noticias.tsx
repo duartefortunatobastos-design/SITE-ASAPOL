@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Search } from "lucide-react";
 import { useState } from "react";
+import { NewsCover } from "@/components/site/NewsCover";
 import { PageHeader } from "@/components/site/PageHeader";
 import { RevealItem, RevealOnScroll } from "@/components/site/RevealOnScroll";
+import { newsArticles, newsCategories } from "@/lib/noticias-data";
 
 export const Route = createFileRoute("/noticias")({
   head: () => ({
@@ -19,63 +21,16 @@ export const Route = createFileRoute("/noticias")({
   component: NewsPage,
 });
 
-const allNews = [
-  {
-    cat: "Sindicato",
-    title: "ASAPOL reúne-se com o MAI",
-    summary: "Propostas concretas para a valorização dos profissionais da PSP.",
-    date: "12 Jun 2026",
-    featured: true,
-  },
-  {
-    cat: "Legislação",
-    title: "Novo regulamento de serviço",
-    summary: "Análise jurídica das alterações em vigor.",
-    date: "08 Jun 2026",
-  },
-  {
-    cat: "Formação",
-    title: "Inscrições abertas: ciclo 2026/2027",
-    summary: "Mais de 30 ações de formação certificadas.",
-    date: "02 Jun 2026",
-  },
-  {
-    cat: "PSP",
-    title: "Novos efetivos na PSP",
-    summary: "Análise da entrada de novos profissionais no terreno.",
-    date: "28 Mai 2026",
-  },
-  {
-    cat: "Eventos",
-    title: "Encontro Nacional ASAPOL 2026",
-    summary: "Lisboa recebe o maior encontro de associados do ano.",
-    date: "20 Mai 2026",
-  },
-  {
-    cat: "Sindicato",
-    title: "Reunião com grupos parlamentares",
-    summary: "Posições da ASAPOL apresentadas em sede própria.",
-    date: "10 Mai 2026",
-  },
-  {
-    cat: "Legislação",
-    title: "Reforma do estatuto policial",
-    summary: "Os pontos críticos que defendemos.",
-    date: "02 Mai 2026",
-  },
-];
-
-const cats = ["Todas", "Sindicato", "PSP", "Legislação", "Formação", "Eventos"];
-
 function NewsPage() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState("Todas");
-  const filtered = allNews.filter(
+  const filtered = newsArticles.filter(
     (n) =>
       (cat === "Todas" || n.cat === cat) &&
       (q === "" || n.title.toLowerCase().includes(q.toLowerCase())),
   );
-  const featured = allNews.find((n) => n.featured);
+  const featured = newsArticles.find((n) => "featured" in n && n.featured) ?? newsArticles[0];
+  const gridNews = filtered.filter((n) => !("featured" in n && n.featured));
 
   return (
     <>
@@ -91,11 +46,16 @@ function NewsPage() {
           {featured && (
             <RevealOnScroll>
               <article className="grid md:grid-cols-2 rounded-2xl overflow-hidden border border-border bg-card shadow-elegant mb-12">
-                <div className="aspect-video md:aspect-auto bg-navy-gradient relative">
+                <NewsCover
+                  src={featured.image}
+                  alt={featured.title}
+                  className="aspect-video md:aspect-auto md:min-h-[280px]"
+                  priority
+                >
                   <div className="absolute top-4 left-4 rounded-full bg-[var(--gold)] text-white px-3 py-1 text-xs font-semibold uppercase tracking-wider">
                     Destaque · {featured.cat}
                   </div>
-                </div>
+                </NewsCover>
                 <div className="p-8 md:p-12 flex flex-col justify-center">
                   <div className="text-xs uppercase tracking-wider text-muted-foreground">
                     {featured.date}
@@ -120,7 +80,7 @@ function NewsPage() {
               />
             </div>
             <div className="flex flex-wrap gap-2">
-              {cats.map((c) => (
+              {newsCategories.map((c) => (
                 <button
                   key={c}
                   onClick={() => setCat(c)}
@@ -135,18 +95,18 @@ function NewsPage() {
           </div>
 
           <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((n, i) => (
+            {gridNews.map((n, i) => (
               <RevealItem
-                key={i}
+                key={n.title}
                 index={i}
                 as="article"
                 className="rounded-2xl bg-card border border-border overflow-hidden shadow-card hover:shadow-elegant transition-shadow duration-300 group"
               >
-                <div className="aspect-[16/10] bg-navy-gradient relative">
+                <NewsCover src={n.image} alt={n.title} className="aspect-[16/10]">
                   <div className="absolute top-4 left-4 rounded-full bg-[var(--gold)] text-white px-3 py-1 text-xs font-semibold uppercase tracking-wider">
                     {n.cat}
                   </div>
-                </div>
+                </NewsCover>
                 <div className="p-6">
                   <div className="text-xs uppercase tracking-wider text-muted-foreground">
                     {n.date}
