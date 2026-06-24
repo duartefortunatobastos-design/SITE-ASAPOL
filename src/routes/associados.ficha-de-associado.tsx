@@ -25,12 +25,6 @@ export const Route = createFileRoute("/associados/ficha-de-associado")({
   component: FichaAssociadoPage,
 });
 
-const quotas = [
-  { role: "Agente", value: "€5,25" },
-  { role: "Agente Principal", value: "€6,25" },
-  { role: "Chefe", value: "€7,25" },
-  { role: "Chefe Principal", value: "€8,25" },
-] as const;
 
 const documents = {
   propostaDoc: publicUrl("documentos/Ficha%20Socio%20ASAPOL.doc"),
@@ -96,21 +90,12 @@ function FichaAssociadoPage() {
             title="Proposta de inscrição"
             description="Preencher a Proposta de Incrição de Sócio completamente com letra legível, e Assinar."
           >
-            <div>
-              <p className="text-sm font-medium text-foreground/85">
-                Os valores das quotizações apovadas em Reunião de Direção são:
+            <div className="relative overflow-hidden rounded-2xl border-2 border-cta/35 bg-gradient-to-br from-cta/10 via-white to-[var(--gold)]/5 px-5 py-6 text-center shadow-elegant">
+              <div className="absolute inset-x-0 top-0 h-1.5 bg-cta" aria-hidden />
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-cta">Cota única</p>
+              <p className="mt-2 font-display text-4xl font-black leading-none text-cta sm:text-5xl">
+                6,80€
               </p>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                {quotas.map((q) => (
-                  <div
-                    key={q.role}
-                    className="flex items-center justify-between rounded-xl border border-border bg-muted/50 px-4 py-3"
-                  >
-                    <span className="text-sm font-medium text-navy">{q.role}</span>
-                    <span className="font-display text-lg font-bold text-brand">{q.value}</span>
-                  </div>
-                ))}
-              </div>
             </div>
 
             <div className="mt-6 grid gap-3">
@@ -220,7 +205,7 @@ function StepCard({
         <div className="h-1 bg-pt-gradient" />
         <div className="p-8 md:p-10">
           <div className="flex items-start gap-4">
-            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-navy-gradient font-display text-lg font-black text-[var(--gold)]">
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-cta font-display text-lg font-black text-white">
               {step}
             </span>
             <div className="min-w-0 flex-1">
