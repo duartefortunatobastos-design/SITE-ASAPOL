@@ -1,13 +1,23 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { AsapolLogo } from "@/components/site/AsapolLogo";
 import { RevealOnScroll } from "@/components/site/RevealOnScroll";
 import { SEDE_ADDRESS } from "@/lib/site";
 
 const socialLinks = [
-  { icon: Facebook, href: "https://www.facebook.com/asapolnacional", label: "Facebook" },
-  { icon: Instagram, href: "https://www.instagram.com/asapol_sindicato/", label: "Instagram" },
-  { icon: Youtube, href: "https://www.youtube.com/@asapolosindicato", label: "YouTube" },
+  {
+    icon: Facebook,
+    href: "https://www.facebook.com/asapolnacional",
+    label: "Facebook",
+    className: "bg-[#1877F2] text-white hover:bg-[#1664D8]",
+  },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/asapol_sindicato/",
+    label: "Instagram",
+    className:
+      "bg-gradient-to-br from-[#F9CE34] via-[#EE2A7B] to-[#6228D7] text-white hover:opacity-90",
+  },
 ] as const;
 
 const siteLinks = [
@@ -42,14 +52,14 @@ export function Footer() {
             portugueses com independência e transparência.
           </p>
           <div className="mt-5 flex items-center gap-2">
-            {socialLinks.map(({ icon: Icon, href, label }) => (
+            {socialLinks.map(({ icon: Icon, href, label, className }) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="grid h-9 w-9 place-items-center rounded-full bg-slate-800 transition hover:bg-brand hover:scale-110"
+                className={`grid h-9 w-9 place-items-center rounded-full transition hover:scale-110 ${className}`}
               >
                 <Icon className="h-4 w-4" />
               </a>
