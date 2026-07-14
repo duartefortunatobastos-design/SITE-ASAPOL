@@ -1,6 +1,17 @@
+function githubPagesHome() {
+  const fromEnv = process.env.GITHUB_PAGES_BASE?.trim();
+  if (fromEnv) {
+    const base = fromEnv.startsWith("/") ? fromEnv : `/${fromEnv}`;
+    const normalized = base.endsWith("/") ? base : `${base}/`;
+    return `${normalized}#/`;
+  }
+  const repo = process.env.GITHUB_REPOSITORY?.split("/")[1];
+  if (repo) return `/${repo}/#/`;
+  return "/SITE-ASAPOL/#/";
+}
+
 export function renderErrorPage(): string {
-  const home =
-    process.env.GITHUB_PAGES === "true" ? "/SITE-ASAPOL--Duarte-Bastos/#/" : "/";
+  const home = process.env.GITHUB_PAGES === "true" ? githubPagesHome() : "/";
 
   return `<!doctype html>
 <html lang="en">

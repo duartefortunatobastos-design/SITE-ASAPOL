@@ -5,10 +5,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { getGitHubPagesBase, isGitHubPagesBuild } from "./github-pages-base.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const BASE = process.env.GITHUB_PAGES === "true" ? "/SITE-ASAPOL--Duarte-Bastos" : "";
+const BASE = isGitHubPagesBuild() ? getGitHubPagesBase({ trailingSlash: false }) : "";
 
 function resolveClientDir() {
   const candidates = [
@@ -26,7 +27,7 @@ const clientDir = resolveClientDir();
 const publicDir = path.join(root, "public");
 
 const REF_PATTERN =
-  /(?:href|src)=["'](\/(?!\/)(?:SITE-ASAPOL--Duarte-Bastos\/)?(?:css|js|imagens|documentos|assets)[^"']+)["']/gi;
+  /(?:href|src)=["'](\/(?!\/)(?:[^/"']+\/)?(?:css|js|imagens|documentos|assets)[^"']+)["']/gi;
 
 function walk(dir, files = []) {
   if (!fs.existsSync(dir)) return files;

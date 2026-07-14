@@ -5,10 +5,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { getGitHubPagesBase, isGitHubPagesBuild } from "./github-pages-base.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const BASE = process.env.GITHUB_PAGES === "true" ? "/SITE-ASAPOL--Duarte-Bastos/" : "/";
+const BASE = isGitHubPagesBuild() ? getGitHubPagesBase() : "/";
 
 function resolveClientDir() {
   const distClient = path.join(root, "dist", "client");
