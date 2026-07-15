@@ -15,6 +15,7 @@ import { publicUrl } from "@/lib/site";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { BackToTop } from "@/components/site/BackToTop";
+import { CookieConsent } from "@/components/site/CookieConsent";
 
 function NotFoundComponent() {
   return (
@@ -169,6 +170,7 @@ function RootComponent() {
       </main>
       <Footer />
       <BackToTop />
+      <CookieConsent />
     </QueryClientProvider>
   );
 }

@@ -117,9 +117,17 @@ export function Footer() {
 
       <div className="border-t border-slate-800">
         <RevealOnScroll animation="animate-fade-in" delay={360}>
-          <div className="container-x flex flex-col items-center justify-between gap-2 py-5 text-xs text-slate-500 sm:flex-row">
+          <div className="container-x flex flex-col items-center justify-between gap-3 py-5 text-xs text-slate-500 sm:flex-row">
             <span>© {new Date().getFullYear()} ASAPOL — Todos os direitos reservados.</span>
-            <span>Direção Nacional</span>
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+              <Link to="/politica-de-privacidade" className="transition hover:text-slate-300">
+                Política de Privacidade
+              </Link>
+              <Link to="/politica-de-cookies" className="transition hover:text-slate-300">
+                Política de Cookies
+              </Link>
+              <span>Direção Nacional</span>
+            </div>
           </div>
         </RevealOnScroll>
       </div>

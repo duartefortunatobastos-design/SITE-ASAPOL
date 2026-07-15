@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VitoriasJudiciaisRouteImport } from './routes/vitorias-judiciais'
 import { Route as QuemSomosRouteImport } from './routes/quem-somos'
+import { Route as PoliticaDePrivacidadeRouteImport } from './routes/politica-de-privacidade'
+import { Route as PoliticaDeCookiesRouteImport } from './routes/politica-de-cookies'
 import { Route as NoticiasRouteImport } from './routes/noticias'
 import { Route as ContactosRouteImport } from './routes/contactos'
 import { Route as BeneficiosRouteImport } from './routes/beneficios'
@@ -36,6 +38,16 @@ const VitoriasJudiciaisRoute = VitoriasJudiciaisRouteImport.update({
 const QuemSomosRoute = QuemSomosRouteImport.update({
   id: '/quem-somos',
   path: '/quem-somos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaDePrivacidadeRoute = PoliticaDePrivacidadeRouteImport.update({
+  id: '/politica-de-privacidade',
+  path: '/politica-de-privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaDeCookiesRoute = PoliticaDeCookiesRouteImport.update({
+  id: '/politica-de-cookies',
+  path: '/politica-de-cookies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NoticiasRoute = NoticiasRouteImport.update({
@@ -130,6 +142,8 @@ export interface FileRoutesByFullPath {
   '/beneficios': typeof BeneficiosRoute
   '/contactos': typeof ContactosRoute
   '/noticias': typeof NoticiasRoute
+  '/politica-de-cookies': typeof PoliticaDeCookiesRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/quem-somos': typeof QuemSomosRouteWithChildren
   '/vitorias-judiciais': typeof VitoriasJudiciaisRoute
   '/associados/ficha-de-associado': typeof AssociadosFichaDeAssociadoRoute
@@ -149,6 +163,8 @@ export interface FileRoutesByTo {
   '/beneficios': typeof BeneficiosRoute
   '/contactos': typeof ContactosRoute
   '/noticias': typeof NoticiasRoute
+  '/politica-de-cookies': typeof PoliticaDeCookiesRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/vitorias-judiciais': typeof VitoriasJudiciaisRoute
   '/associados/ficha-de-associado': typeof AssociadosFichaDeAssociadoRoute
   '/associados/painel': typeof AssociadosPainelRoute
@@ -168,6 +184,8 @@ export interface FileRoutesById {
   '/beneficios': typeof BeneficiosRoute
   '/contactos': typeof ContactosRoute
   '/noticias': typeof NoticiasRoute
+  '/politica-de-cookies': typeof PoliticaDeCookiesRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/quem-somos': typeof QuemSomosRouteWithChildren
   '/vitorias-judiciais': typeof VitoriasJudiciaisRoute
   '/associados/ficha-de-associado': typeof AssociadosFichaDeAssociadoRoute
@@ -190,6 +208,8 @@ export interface FileRouteTypes {
     | '/beneficios'
     | '/contactos'
     | '/noticias'
+    | '/politica-de-cookies'
+    | '/politica-de-privacidade'
     | '/quem-somos'
     | '/vitorias-judiciais'
     | '/associados/ficha-de-associado'
@@ -209,6 +229,8 @@ export interface FileRouteTypes {
     | '/beneficios'
     | '/contactos'
     | '/noticias'
+    | '/politica-de-cookies'
+    | '/politica-de-privacidade'
     | '/vitorias-judiciais'
     | '/associados/ficha-de-associado'
     | '/associados/painel'
@@ -227,6 +249,8 @@ export interface FileRouteTypes {
     | '/beneficios'
     | '/contactos'
     | '/noticias'
+    | '/politica-de-cookies'
+    | '/politica-de-privacidade'
     | '/quem-somos'
     | '/vitorias-judiciais'
     | '/associados/ficha-de-associado'
@@ -248,6 +272,8 @@ export interface RootRouteChildren {
   BeneficiosRoute: typeof BeneficiosRoute
   ContactosRoute: typeof ContactosRoute
   NoticiasRoute: typeof NoticiasRoute
+  PoliticaDeCookiesRoute: typeof PoliticaDeCookiesRoute
+  PoliticaDePrivacidadeRoute: typeof PoliticaDePrivacidadeRoute
   QuemSomosRoute: typeof QuemSomosRouteWithChildren
   VitoriasJudiciaisRoute: typeof VitoriasJudiciaisRoute
 }
@@ -266,6 +292,20 @@ declare module '@tanstack/react-router' {
       path: '/quem-somos'
       fullPath: '/quem-somos'
       preLoaderRoute: typeof QuemSomosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-de-privacidade': {
+      id: '/politica-de-privacidade'
+      path: '/politica-de-privacidade'
+      fullPath: '/politica-de-privacidade'
+      preLoaderRoute: typeof PoliticaDePrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-de-cookies': {
+      id: '/politica-de-cookies'
+      path: '/politica-de-cookies'
+      fullPath: '/politica-de-cookies'
+      preLoaderRoute: typeof PoliticaDeCookiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/noticias': {
@@ -439,6 +479,8 @@ const rootRouteChildren: RootRouteChildren = {
   BeneficiosRoute: BeneficiosRoute,
   ContactosRoute: ContactosRoute,
   NoticiasRoute: NoticiasRoute,
+  PoliticaDeCookiesRoute: PoliticaDeCookiesRoute,
+  PoliticaDePrivacidadeRoute: PoliticaDePrivacidadeRoute,
   QuemSomosRoute: QuemSomosRouteWithChildren,
   VitoriasJudiciaisRoute: VitoriasJudiciaisRoute,
 }
