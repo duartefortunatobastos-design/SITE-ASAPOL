@@ -57,8 +57,9 @@ function CookiePolicyPage() {
           <p>Este website pode utilizar:</p>
           <ul className="list-disc space-y-2 pl-5 marker:text-brand">
             <li>
-              <strong className="text-navy">Preferência de consentimento de cookies</strong> —
-              memoriza que aceitou ou fechou o aviso de privacidade/cookies;
+              <strong className="text-navy">Aviso de privacidade e cookies</strong> —
+              apresentado em cada visita ou atualização da página, com ligação às políticas
+              legais;
             </li>
             <li>
               <strong className="text-navy">ID de visitante anónimo</strong> — ajuda a identificar a

@@ -1,30 +1,15 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  acceptCookieConsent,
-  dismissCookieBannerForSession,
-  shouldShowCookieBanner,
-} from "@/lib/cookie-consent";
 
 export function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(shouldShowCookieBanner());
+    setVisible(true);
   }, []);
 
   if (!visible) return null;
-
-  function accept() {
-    acceptCookieConsent();
-    setVisible(false);
-  }
-
-  function close() {
-    dismissCookieBannerForSession();
-    setVisible(false);
-  }
 
   return (
     <div
@@ -63,14 +48,14 @@ export function CookieConsent() {
             <Button
               type="button"
               variant="outline"
-              onClick={close}
+              onClick={() => setVisible(false)}
               className="h-10 border-white/35 bg-white/5 px-5 text-white hover:bg-white/15 hover:text-white"
             >
               Fechar
             </Button>
             <Button
               type="button"
-              onClick={accept}
+              onClick={() => setVisible(false)}
               className="h-10 bg-white px-5 font-semibold text-[var(--brand-dark)] shadow-sm hover:bg-slate-100"
             >
               Aceitar
